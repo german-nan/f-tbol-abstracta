@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Confirmar Jugador</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="JQuery.js"></script>
+        <script src="Scripts.js"></script>
+        <link type="text/css" rel="stylesheet" href="Style.css"/>
+
+        <style type="text/css">
+            h2 {
+                color:blue;
+                text-align:left; 
+            }
+            
+            #myTable {
+                color:black;
+                text-align:left;
+                padding-left:45%;
+            }
+
+            #myTable2 {
+                color:black;
+                text-align:right;
+                padding-left:65%
+            }
+
+
+        </style>
+
+
+    </head>
+    <body>
+        <hgroup> <h2> Formulario </br>
+                        de</br>
+                Inscripción</h2>
+
+        <form name="solicitudIngreso" action="#" align="left" id="solicitudIngreso" class="solicitudIngreso">
+            <input type="text" class="nombre" id="nombre" placeholder="Nombre"/><label id="vacioNombre" style="display:none">Ingrese su nombre <input name="nombre" type="text"/> </label><br/>
+            <input type="text" class="apellido" id="apellido" placeholder="Apellido"/><label id="vacioApellido" style="display:none">Ingrese su apellido</label><br/>
+            <input type="text" class="apodo" id="apodo" placeholder="Apodo"/><label id="vacioApodo" style="display:none">Ingrese su apodo</label><br/>
+            <select placeholder="Posición"><option selected="true" disabled="true">Posición</option> <option>GoalKeeper</option><option>Pescador</option><option>Lateral izquierdo</option><option>Lateral derecho</option><option>5 exquisito</option><option>Polifuncional</option><option>Toy pa' defender</option><option>Lo más parecido al T8ny</option></select>
+        <br/>
+        <br/>
+        <button id="Confirmar" onclick="insertarFila(document.getElementById('nombre').value)">Confirmar</button>
+        <button id="Cancelar">Cancelar</button>
+
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Equipo N° 1</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <table id="myTable2">
+        <thead>
+            <tr>
+                <th>Equipo N° 2</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+
+
+        <div class="x_panel">
+                  <div class="x_title">
+                      <li 
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                   </div>
+                  <div class="x_content">
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+
+
+
+    </body>
+</html>
+
+<script>
+
+    var equipo1cant = 0
+    var equipo2cant = 0
+function obtenerEquipo () {
+    
+    var equipo = Math.round(Math.random() * (2 - 1) + 1);
+    return equipo;
+}
+
+function insertarFila(insertFila1)
+{
+    var equipo = obtenerEquipo();
+    var tableRef;
+    
+    if (equipo==1 & equipo1cant<5 || equipo2cant == 5 & equipo1cant<5) {
+        tableRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+        equipo1cant++
+    }
+    else if (equipo2cant<5) {
+        tableRef = document.getElementById('myTable2').getElementsByTagName('tbody')[0];
+        equipo2cant++
+    }
+    // Insert a row in the table at the last row
+    var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+    // Insert a cell in the row at index 0
+    var newCell  = newRow.insertCell(0);
+
+    // Append a text node to the cell
+    var newText  = document.createTextNode(insertFila1);
+    newCell.appendChild(newText);
+}
+
+</script>
+
+<script>
+
+
+// function insertarFila2(insertFila2)
+// {
+//     var tableRef = document.getElementById('myTable2').getElementsByTagName('tbody')[0];
+
+//     // Insert a row in the table at the last row
+//     var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+//     // Insert a cell in the row at index 0
+//     var newCell  = newRow.insertCell(0);
+
+//     // Append a text node to the cell
+//     var newText  = document.createTextNode(insertFila2);
+//     newCell.appendChild(newText);
+// }
+
+</script>
